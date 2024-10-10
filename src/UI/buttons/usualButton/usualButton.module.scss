@@ -1,0 +1,19 @@
+.usualButton {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	padding: 0 10px;
+	background-color: var(--white);
+	border: solid 2px var(--lightGrey);
+	border-radius: 10px;
+	gap: 15px;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active {
+		opacity: 0.4;
+	}
+}

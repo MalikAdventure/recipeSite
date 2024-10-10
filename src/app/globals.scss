@@ -1,0 +1,43 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	color: var(--black);
+}
+
+.container {
+	width: 1800px;
+	margin: 0 auto;
+}
+
+:root {
+	--white: #ffffff;
+	--black: #333333;
+	--yellow: #f1c40f;
+	--lightGrey: #e0e0e0;
+	--darkGrey: #a0a0a0;
+}
+
+.link-text {
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+.topic-text {
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+.title-text {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.description-text {
+	font-size: 1.5rem;
+	font-weight: 400;
+}
