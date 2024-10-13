@@ -1,0 +1,23 @@
+.footer {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__imgs {
+		margin-bottom: 20px;
+	}
+
+	&__img {
+		cursor: pointer;
+		margin-right: 30px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

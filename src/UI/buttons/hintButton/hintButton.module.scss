@@ -1,0 +1,17 @@
+.hintButton {
+	display: block;
+	padding: 10px 20px;
+	background-color: var(--black);
+	border: solid 2px var(--yellow);
+	border-radius: 20px;
+	color: var(--yellow);
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active {
+		opacity: 0.4;
+	}
+}

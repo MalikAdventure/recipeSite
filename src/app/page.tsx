@@ -1,19 +1,14 @@
 import './page.scss'
 
 import MainContainer from '@/container/mainContainer'
-
-import Link from 'next/link'
+import SeasonalRecipe from '@/components/seasonalRecipe/seasonalRecipe'
 
 const Home = () => {
 	return (
 		<>
 			<MainContainer>
-				<div className='container'>
-					<h1>Hello world</h1>
-					<nav>
-						<Link href='/'>главная</Link>
-						<Link href='/recipes'>рецепты</Link>
-					</nav>
+				<div className='seasonal-recipe'>
+					<SeasonalRecipe />
 				</div>
 			</MainContainer>
 		</>

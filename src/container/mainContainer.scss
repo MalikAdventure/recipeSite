@@ -1,0 +1,15 @@
+.main-container {
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		min-height: 70vh;
+	}
+
+	&__wrapper-left {
+		width: 20%;
+	}
+
+	&__wrapper-right {
+		width: 75%;
+	}
+}

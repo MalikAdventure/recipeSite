@@ -1,0 +1,20 @@
+.seasonal-recipe {
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&__content {
+		padding: 30px;
+	}
+
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__text {
+		margin-bottom: 20px;
+	}
+
+	&__button {
+		margin-bottom: 20px;
+	}
+}
