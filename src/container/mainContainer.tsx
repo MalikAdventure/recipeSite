@@ -14,7 +14,7 @@ const MainContainer: FC<IMainContainer> = ({ children }) => {
 	return (
 		<>
 			<Header />
-			<div className='main-container__wrapper container section'>
+			<div className='main-container__wrapper container'>
 				<div className='main-container__wrapper-left'>
 					<Navigation />
 				</div>

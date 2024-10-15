@@ -1,0 +1,21 @@
+.news-list {
+	&__text {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+	}
+
+	&__link {
+		color: var(--black);
+		text-decoration: none;
+		&:hover {
+			color: var(--yellow);
+		}
+	}
+
+	&__box {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+	}
+}

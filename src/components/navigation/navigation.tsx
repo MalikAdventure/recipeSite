@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Navigation: FC = () => {
 	return (
-		<nav className='navigation'>
+		<nav className='navigation section'>
 			<ul className='navigation__list'>
 				<li className='navigation__item link-text'>
 					<Link href='/'>Главная страница</Link>

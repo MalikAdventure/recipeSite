@@ -16,8 +16,33 @@
 	&__img {
 		cursor: pointer;
 		margin-right: 30px;
+		&:hover {
+			filter: invert(86%) sepia(72%) saturate(7497%) hue-rotate(343deg)
+				brightness(94%) contrast(98%);
+		}
 		&:last-child {
 			margin-right: 0;
 		}
+	}
+
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 30px;
+	}
+
+	&__link {
+		margin-right: 20px;
+		color: var(--black);
+		&:hover {
+			color: var(--yellow);
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__age {
+		margin-bottom: 30px;
 	}
 }
