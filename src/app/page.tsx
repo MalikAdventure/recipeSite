@@ -1,6 +1,6 @@
 import './page.scss'
 
-import MainContainer from '@/container/mainContainer'
+import MainContainer from '@/container/mainContainer/mainContainer'
 import SeasonalRecipe from '@/components/seasonalRecipe/seasonalRecipe'
 import MenuTiles from '@/components/menuTiles/menuTiles'
 import NewsList from '@/components/news/newsList/newsList'

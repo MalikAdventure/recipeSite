@@ -1,18 +1,18 @@
 import { FC } from 'react'
 
 import MainContainer from '@/container/mainContainer/mainContainer'
-import RecipesList from '@/components/recipes/recipesList/recipesList'
+import NewsList from '@/components/news/newsList/newsList'
 
-const Recipes: FC = () => {
+const News: FC = () => {
 	return (
 		<>
 			<MainContainer>
 				<div className='section'>
-					<RecipesList />
+					<NewsList />
 				</div>
 			</MainContainer>
 		</>
 	)
 }
 
-export default Recipes
+export default News

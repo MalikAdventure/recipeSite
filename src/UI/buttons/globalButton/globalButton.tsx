@@ -5,11 +5,14 @@ import { FC, ReactNode } from 'react'
 interface IGlobalButton {
 	children: ReactNode
 	className?: string
+	onClick?: () => void
 }
 
 const GlobalButton: FC<IGlobalButton> = ({ children, ...props }) => {
 	return (
-		<button className={`${classes.globalButton} ${props.className} link-text`}>
+		<button
+			{...props}
+			className={`${classes.globalButton} ${props.className} link-text`}>
 			{children}
 		</button>
 	)

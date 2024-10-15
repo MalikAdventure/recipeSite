@@ -1,0 +1,20 @@
+.recipes-list {
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__search {
+		margin-bottom: 30px;
+	}
+
+	&__box {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+		margin-bottom: 30px;
+	}
+
+	&__button {
+		margin: 0 auto;
+	}
+}

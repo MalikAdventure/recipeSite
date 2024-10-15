@@ -4,6 +4,7 @@ import { FC, ReactNode } from 'react'
 
 import Header from '@/components/header/header'
 import Navigation from '@/components/navigation/navigation'
+import UpScroll from '@/components/upScroll/upScroll'
 import Footer from '@/components/footer/footer'
 
 interface IMainContainer {
@@ -20,6 +21,7 @@ const MainContainer: FC<IMainContainer> = ({ children }) => {
 				</div>
 				<main className='main-container__wrapper-right'>{children}</main>
 			</div>
+			<UpScroll />
 			<Footer />
 		</>
 	)

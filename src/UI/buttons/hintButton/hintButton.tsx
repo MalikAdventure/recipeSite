@@ -10,6 +10,7 @@ interface IHintButton {
 const HintButton: FC<IHintButton> = ({ children, ...props }) => {
 	return (
 		<button
+			{...props}
 			className={`${classes.hintButton} ${props.className} description-text`}>
 			{children}
 		</button>

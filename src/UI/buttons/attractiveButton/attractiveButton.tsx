@@ -10,6 +10,7 @@ interface IAttractiveButton {
 const AttractiveButton: FC<IAttractiveButton> = ({ children, ...props }) => {
 	return (
 		<button
+			{...props}
 			className={`${classes.attractiveButton} ${props.className} description-text`}>
 			{children}
 		</button>

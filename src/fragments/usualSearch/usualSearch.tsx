@@ -9,11 +9,15 @@ interface IUsualSearch {
 	placeholder: string
 }
 
-const UsualSearch: FC<IUsualSearch> = ({ placeholder }) => {
+const UsualSearch: FC<IUsualSearch> = ({ placeholder, ...props }) => {
 	return (
 		<div>
-			<UsualInput placeholder={placeholder} className='usual-search__input' />
-			<AttractiveButton>Найти</AttractiveButton>
+			<UsualInput
+				{...props}
+				placeholder={placeholder}
+				className='usual-search__input'
+			/>
+			<AttractiveButton {...props}>Найти</AttractiveButton>
 		</div>
 	)
 }

@@ -10,6 +10,7 @@ interface IGlobalInput {
 const GlobalInput: FC<IGlobalInput> = ({ placeholder, ...props }) => {
 	return (
 		<input
+			{...props}
 			type='text'
 			placeholder={placeholder}
 			className={`${classes.globalInput} ${props.className} description-text`}

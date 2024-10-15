@@ -9,7 +9,9 @@ interface IUsualButton {
 
 const UsualButton: FC<IUsualButton> = ({ children, ...props }) => {
 	return (
-		<button className={`${classes.usualButton} ${props.className} link-text`}>
+		<button
+			{...props}
+			className={`${classes.usualButton} ${props.className} link-text`}>
 			{children}
 		</button>
 	)
