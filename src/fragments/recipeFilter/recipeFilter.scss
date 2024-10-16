@@ -1,0 +1,13 @@
+.recipe-filter {
+	&__box {
+		display: flex;
+		margin-bottom: 30px;
+	}
+
+	&__item {
+		margin-right: 30px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

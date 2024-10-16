@@ -1,3 +1,5 @@
+'use client'
+
 import './page.scss'
 
 import MainContainer from '@/container/mainContainer/mainContainer'

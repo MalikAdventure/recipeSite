@@ -7,6 +7,7 @@ import AttractiveButton from '@/UI/buttons/attractiveButton/attractiveButton'
 
 interface IUsualSearch {
 	placeholder: string
+	className?: string
 }
 
 const UsualSearch: FC<IUsualSearch> = ({ placeholder, ...props }) => {
@@ -15,7 +16,7 @@ const UsualSearch: FC<IUsualSearch> = ({ placeholder, ...props }) => {
 			<UsualInput
 				{...props}
 				placeholder={placeholder}
-				className='usual-search__input'
+				className={`${props.className} usual-search__input`}
 			/>
 			<AttractiveButton {...props}>Найти</AttractiveButton>
 		</div>

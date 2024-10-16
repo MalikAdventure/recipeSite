@@ -5,6 +5,7 @@ import { FC, ReactNode } from 'react'
 interface IUsualButton {
 	children: ReactNode
 	className?: string
+	onClick?: () => void
 }
 
 const UsualButton: FC<IUsualButton> = ({ children, ...props }) => {
