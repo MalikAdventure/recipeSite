@@ -18,7 +18,7 @@ const Navigation: FC = () => {
 					<Link href='/list-of-news'>Новости</Link>
 				</li>
 				<li className='navigation__item link-text'>
-					<Link href='#'>Калькулятор калорий</Link>
+					<Link href='/calculator'>Калькулятор калорий</Link>
 				</li>
 			</ul>
 		</nav>

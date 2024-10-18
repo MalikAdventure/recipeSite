@@ -4,11 +4,17 @@ import './recipeFilter.scss'
 
 import { FC } from 'react'
 
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { setShowFilter } from '@/store/reducers/filterSlice'
+
 import UsualSelect from '@/UI/selects/usualSelect/usualSelect'
 import UsualButton from '@/UI/buttons/usualButton/usualButton'
-// import CenterModal from '@/UI/modals/centerModal/centerModal'
+import CenterModal from '@/UI/modals/centerModal/centerModal'
 
 const RecipeFilter: FC = () => {
+	const dispatch = useAppDispatch()
+	const { showFilter } = useAppSelector((state) => state.filterReducer)
+
 	const options = [
 		{ value: '', label: 'Сортировка' },
 		{ value: 'option1', label: 'Option 1' },
@@ -17,14 +23,28 @@ const RecipeFilter: FC = () => {
 	]
 
 	return (
-		<div className='recipe-filter__box'>
-			<UsualSelect options={options} className='recipe-filter__item' />
-			<UsualButton
-				onClick={() => console.log('filter')}
-				className='recipe-filter__item'>
-				Фильтры
-			</UsualButton>
-		</div>
+		<>
+			<div className='recipe-filter__box'>
+				<UsualSelect options={options} className='recipe-filter__item' />
+				<UsualButton
+					onClick={() => dispatch(setShowFilter(!showFilter))}
+					className='recipe-filter__item'>
+					Фильтры
+				</UsualButton>
+			</div>
+			{showFilter && (
+				<CenterModal>
+					<div>
+						<h2>Фильтры</h2>
+						<p>Параметр 1</p>
+						<p>Параметр 2</p>
+						<p>Параметр 3</p>
+						<p>Параметр 4</p>
+						<p>Параметр 5</p>
+					</div>
+				</CenterModal>
+			)}
+		</>
 	)
 }
 

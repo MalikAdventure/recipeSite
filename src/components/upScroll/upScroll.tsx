@@ -4,8 +4,8 @@ import { FC } from 'react'
 
 import Image from 'next/image'
 
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { setShowButton } from '../../store/reducers/upSlice'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { setShowButton } from '@/store/reducers/upSlice'
 
 import { useEffect } from 'react'
 
