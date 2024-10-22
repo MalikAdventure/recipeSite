@@ -24,10 +24,12 @@ const Header: FC = () => {
 					<Image src={plusImg} alt='plus' />
 				</UsualButton>
 				<GlobalSearch />
-				<UsualButton className='header__button'>
-					Войти
-					<Image src={exitImg} alt='exit' />
-				</UsualButton>
+				<Link href='/authorization' className='header__button-link'>
+					<UsualButton className='header__button'>
+						Войти
+						<Image src={exitImg} alt='exit' />
+					</UsualButton>
+				</Link>
 			</div>
 		</header>
 	)
