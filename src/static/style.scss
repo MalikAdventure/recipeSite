@@ -1,0 +1,25 @@
+.mdx {
+	h1 {
+		margin-bottom: 30px;
+	}
+
+	h2 {
+		margin: 20px 0;
+	}
+
+	h3 {
+		margin: 10px 0;
+	}
+
+	> ul,
+	ol {
+		list-style-position: inside;
+		margin-left: 20px;
+	}
+
+	&_numbered-list {
+		li {
+			list-style-type: none;
+		}
+	}
+}

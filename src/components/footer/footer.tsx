@@ -42,20 +42,16 @@ const Footer: FC = () => {
 						</a>
 					</div>
 					<div className='footer__links'>
-						<Link href='#' className='footer__link'>
+						<Link href='/about-project' className='footer__link'>
 							О проекте
 						</Link>
 						<p className='footer__link'>&#8226;</p>
-						<Link href='#' className='footer__link'>
+						<Link href='/privacy-policy' className='footer__link'>
 							Политика конфиденциальности
 						</Link>
 						<p className='footer__link'>&#8226;</p>
-						<Link href='#' className='footer__link'>
+						<Link href='/user-agreement' className='footer__link'>
 							Пользовательское соглашение
-						</Link>
-						<p className='footer__link'>&#8226;</p>
-						<Link href='#' className='footer__link'>
-							Рекомендательных технологии
 						</Link>
 					</div>
 					<Image

@@ -11,7 +11,7 @@ import UsualButton from '@/UI/buttons/usualButton/usualButton'
 const RecipesList: FC = () => {
 	return (
 		<div className='recipes-list'>
-			<h1 className='recipes-list__title title-text'>Рецепты</h1>
+			<h1 className='recipes-list__title topic-text'>Рецепты</h1>
 			<UsualSearch
 				placeholder='Поиск рецепта'
 				className='recipes-list__search'

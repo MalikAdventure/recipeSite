@@ -11,7 +11,7 @@ const NewsList: FC = () => {
 		<>
 			<div className='news-list'>
 				<div className='news-list__text'>
-					<h2 className='news-list__title title-text'>Новости</h2>
+					<h2 className='news-list__title topic-text'>Новости</h2>
 					<Link href='#' className='news-list__link link-text'>
 						Все новости
 					</Link>
