@@ -1,6 +1,10 @@
+'use client'
+
 import './globals.scss'
 
-import type { Metadata } from 'next'
+import App from '@/app/app'
+
+// import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Head from 'next/head'
 
@@ -15,10 +19,10 @@ const geistMono = localFont({
 	weight: '100 900',
 })
 
-export const metadata: Metadata = {
-	title: 'Recipe site',
-	description: 'Сайт с рецептами с использованием next js',
-}
+// export const metadata: Metadata = {
+// 	title: 'Recipe site',
+// 	description: 'Сайт с рецептами с использованием next js',
+// }
 
 export default function RootLayout({
 	children,
@@ -47,7 +51,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable}`}
 				suppressHydrationWarning={true}>
-				{children}
+				<App>{children}</App>
 			</body>
 		</html>
 	)

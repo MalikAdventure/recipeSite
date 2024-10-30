@@ -7,7 +7,18 @@ import SeasonalRecipe from '@/components/seasonalRecipe/seasonalRecipe'
 import MenuTiles from '@/components/menuTiles/menuTiles'
 import NewsList from '@/components/news/newsList/newsList'
 
+import { useAppDispatch } from '@/hooks/redux'
+import { setContextPage } from '@/store/reducers/contextSlice'
+
+import { useEffect } from 'react'
+
 const Home = () => {
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		dispatch(setContextPage('main'))
+	})
+
 	return (
 		<>
 			<MainContainer>

@@ -1,13 +1,18 @@
+'use client'
+
 import './not-found.scss'
 
 import { FC } from 'react'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import MainContainer from '@/container/mainContainer/mainContainer'
 import AttractiveButton from '@/UI/buttons/attractiveButton/attractiveButton'
 
-const notFound: FC = () => {
+const NotFound: FC = () => {
+	const { back } = useRouter()
+
 	return (
 		<>
 			<MainContainer>
@@ -21,10 +26,11 @@ const notFound: FC = () => {
 					<Link href='/' className='not-found__button'>
 						<AttractiveButton>Перейти на главную</AttractiveButton>
 					</Link>
+					<AttractiveButton onClick={back}>Вернутся назад</AttractiveButton>
 				</div>
 			</MainContainer>
 		</>
 	)
 }
 
-export default notFound
+export default NotFound

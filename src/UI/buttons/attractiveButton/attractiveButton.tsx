@@ -5,6 +5,7 @@ import { FC, ReactNode } from 'react'
 interface IAttractiveButton {
 	children: ReactNode
 	className?: string
+	onClick?: () => void
 }
 
 const AttractiveButton: FC<IAttractiveButton> = ({ children, ...props }) => {

@@ -2,16 +2,24 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import upReducer from './reducers/upSlice'
 import filterReducer from './reducers/filterSlice'
 import calorieCalculatorReducer from './reducers/calorieCalculatorSlice'
+import allNewsReducer from './reducers/allNewsSlice'
+import contextReducer from './reducers/contextSlice'
+import { api } from '@/services/recipeServices'
 
 const rootReducer = combineReducers({
 	upReducer,
 	filterReducer,
 	calorieCalculatorReducer,
+	allNewsReducer,
+	contextReducer,
+	[api.reducerPath]: api.reducer,
 })
 
 export const setupStore = () => {
 	return configureStore({
 		reducer: rootReducer,
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware().concat(api.middleware),
 	})
 }
 
