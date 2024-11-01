@@ -17,17 +17,17 @@ const Header: FC = () => {
 		<header className='header'>
 			<div className='header__container container'>
 				<Link href='/' className='header__logo'>
-					<Image src={logoImg} alt='logo' />
+					<Image src={logoImg} alt='logo' priority />
 				</Link>
 				<UsualButton className='header__button'>
 					Создать рецепт
-					<Image src={plusImg} alt='plus' />
+					<Image src={plusImg} alt='plus' priority />
 				</UsualButton>
 				<GlobalSearch />
 				<Link href='/authorization' className='header__button-link'>
 					<UsualButton className='header__button'>
 						Войти
-						<Image src={exitImg} alt='exit' />
+						<Image src={exitImg} alt='exit' priority />
 					</UsualButton>
 				</Link>
 			</div>

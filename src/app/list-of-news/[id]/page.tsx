@@ -3,7 +3,7 @@ import { FC } from 'react'
 import MainContainer from '@/container/mainContainer/mainContainer'
 import NewsDetailed from '@/components/news/newsDetailed/newsDetailed'
 
-const News: FC = () => {
+const NewsPage: FC = () => {
 	return (
 		<>
 			<MainContainer>
@@ -15,4 +15,4 @@ const News: FC = () => {
 	)
 }
 
-export default News
+export default NewsPage

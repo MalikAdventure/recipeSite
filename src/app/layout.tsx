@@ -1,10 +1,8 @@
-'use client'
-
 import './globals.scss'
 
 import App from '@/app/app'
 
-// import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Head from 'next/head'
 
@@ -19,10 +17,10 @@ const geistMono = localFont({
 	weight: '100 900',
 })
 
-// export const metadata: Metadata = {
-// 	title: 'Recipe site',
-// 	description: 'Сайт с рецептами с использованием next js',
-// }
+export const metadata: Metadata = {
+	title: 'Recipe site',
+	description: 'Сайт с рецептами с использованием next js',
+}
 
 export default function RootLayout({
 	children,

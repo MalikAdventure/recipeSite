@@ -3,7 +3,7 @@ import { FC } from 'react'
 import MainContainer from '@/container/mainContainer/mainContainer'
 import CalorieCalculator from '@/components/calorieCalculator/calorieCalculator'
 
-const Calculator: FC = () => {
+const CalculatorPage: FC = () => {
 	return (
 		<>
 			<MainContainer>
@@ -15,4 +15,4 @@ const Calculator: FC = () => {
 	)
 }
 
-export default Calculator
+export default CalculatorPage

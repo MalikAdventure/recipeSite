@@ -2,6 +2,8 @@
 
 import './page.scss'
 
+import { FC } from 'react'
+
 import MainContainer from '@/container/mainContainer/mainContainer'
 import SeasonalRecipe from '@/components/seasonalRecipe/seasonalRecipe'
 import MenuTiles from '@/components/menuTiles/menuTiles'
@@ -12,7 +14,7 @@ import { setContextPage } from '@/store/reducers/contextSlice'
 
 import { useEffect } from 'react'
 
-const Home = () => {
+const HomePage: FC = () => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
@@ -36,4 +38,4 @@ const Home = () => {
 	)
 }
 
-export default Home
+export default HomePage

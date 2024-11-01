@@ -3,7 +3,7 @@ import { FC } from 'react'
 import MainContainer from '@/container/mainContainer/mainContainer'
 import SignIn from '@/components/sign/signIn/signIn'
 
-const Authorization: FC = () => {
+const AuthorizationPage: FC = () => {
 	return (
 		<>
 			<MainContainer>
@@ -15,4 +15,4 @@ const Authorization: FC = () => {
 	)
 }
 
-export default Authorization
+export default AuthorizationPage

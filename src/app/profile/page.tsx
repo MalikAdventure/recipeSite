@@ -1,20 +1,18 @@
-'use client'
-
-import MainContainer from '@/container/mainContainer/mainContainer'
-import Policy from '@/static/policy/policy.mdx'
-
 import { FC } from 'react'
 
-const AboutProjectPage: FC = () => {
+import MainContainer from '@/container/mainContainer/mainContainer'
+import Profile from '@/components/profile/profile'
+
+const ProfilePage: FC = () => {
 	return (
 		<>
 			<MainContainer>
 				<div className='section'>
-					<Policy />
+					<Profile />
 				</div>
 			</MainContainer>
 		</>
 	)
 }
 
-export default AboutProjectPage
+export default ProfilePage

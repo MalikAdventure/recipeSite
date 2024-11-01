@@ -5,7 +5,7 @@ import Agreement from '@/static/agreement/agreement.mdx'
 
 import { FC } from 'react'
 
-const UserAgreement: FC = () => {
+const UserAgreementPage: FC = () => {
 	return (
 		<>
 			<MainContainer>
@@ -17,4 +17,4 @@ const UserAgreement: FC = () => {
 	)
 }
 
-export default UserAgreement
+export default UserAgreementPage

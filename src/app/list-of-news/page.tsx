@@ -10,7 +10,7 @@ import { setContextPage } from '@/store/reducers/contextSlice'
 
 import { useEffect } from 'react'
 
-const ListOfNews: FC = () => {
+const ListOfNewsPage: FC = () => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
@@ -28,4 +28,4 @@ const ListOfNews: FC = () => {
 	)
 }
 
-export default ListOfNews
+export default ListOfNewsPage

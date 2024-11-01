@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 import MainContainer from '@/container/mainContainer/mainContainer'
 import AttractiveButton from '@/UI/buttons/attractiveButton/attractiveButton'
 
-const NotFound: FC = () => {
+const NotFoundPage: FC = () => {
 	const { back } = useRouter()
 
 	return (
@@ -26,11 +26,13 @@ const NotFound: FC = () => {
 					<Link href='/' className='not-found__button'>
 						<AttractiveButton>Перейти на главную</AttractiveButton>
 					</Link>
-					<AttractiveButton onClick={back}>Вернутся назад</AttractiveButton>
+					<AttractiveButton className='not-found__button' onClick={back}>
+						Вернутся назад
+					</AttractiveButton>
 				</div>
 			</MainContainer>
 		</>
 	)
 }
 
-export default NotFound
+export default NotFoundPage

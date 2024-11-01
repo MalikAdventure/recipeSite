@@ -5,7 +5,7 @@ import Project from '@/static/project/project.mdx'
 
 import { FC } from 'react'
 
-const AboutProject: FC = () => {
+const AboutProjectPage: FC = () => {
 	return (
 		<>
 			<MainContainer>
@@ -17,4 +17,4 @@ const AboutProject: FC = () => {
 	)
 }
 
-export default AboutProject
+export default AboutProjectPage

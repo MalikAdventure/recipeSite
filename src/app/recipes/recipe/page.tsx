@@ -3,7 +3,7 @@ import { FC } from 'react'
 import MainContainer from '@/container/mainContainer/mainContainer'
 import RecipesDetailed from '@/components/recipes/recipesDetailed/recipesDetailed'
 
-const Recipe: FC = () => {
+const RecipePage: FC = () => {
 	return (
 		<>
 			<MainContainer>
@@ -15,4 +15,4 @@ const Recipe: FC = () => {
 	)
 }
 
-export default Recipe
+export default RecipePage

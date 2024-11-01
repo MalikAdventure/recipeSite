@@ -20,7 +20,9 @@ const SeasonalRecipe: FC = () => {
 					<p className='seasonal-recipe__text description-text'>
 						Блюда для летнего сезона
 					</p>
-					<HintButton className='seasonal-recipe__button'>Какой блюдо выбрать?</HintButton>
+					<HintButton className='seasonal-recipe__button'>
+						Какое блюдо выбрать?
+					</HintButton>
 					<UsualSearch placeholder='Что вы хотите попробовать летом?' />
 				</div>
 			</div>
