@@ -18,5 +18,24 @@ export const api = createApi({
 				params: { id },
 			}),
 		}),
+		getAllAdminsForAuth: builder.query({
+			query: ({ email, password }) => ({
+				url: '/admins',
+				params: { email, password },
+			}),
+		}),
+		getAllUsersForAuth: builder.query({
+			query: ({ email, password }) => ({
+				url: '/users',
+				params: { email, password },
+			}),
+		}),
+		createAccount: builder.mutation({
+			query: ({ name, email, password }) => ({
+				url: '/users',
+				method: 'POST',
+				body: { name, email, password },
+			}),
+		}),
 	}),
 })

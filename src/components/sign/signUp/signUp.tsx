@@ -8,11 +8,27 @@ import { ISignUp } from './signUp.interface'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import UsualButton from '@/UI/buttons/usualButton/usualButton'
 import UsualInput from '@/UI/inputs/usualInput/usualInput'
 
+import { api } from '@/services/recipeServices'
+
+import { useAppDispatch } from '@/hooks/redux'
+import { setProfile } from '@/store/reducers/contextSlice'
+
+import { useState, useEffect } from 'react'
+
 const SignUp: FC = () => {
+	const dispatch = useAppDispatch()
+
+	const [formData, setFormData] = useState<ISignUp>({
+		name: null,
+		email: null,
+		password: null,
+	})
+
 	const { register, handleSubmit, formState, watch } = useForm<ISignUp>({
 		mode: 'onChange',
 	})
@@ -24,11 +40,47 @@ const SignUp: FC = () => {
 	const passwordError = formState.errors.password?.message
 	const repeatPasswordError = formState.errors.repeatPassword?.message
 
-	const onSubmit: SubmitHandler<ISignUp> = (data) => {
-		alert(
-			`Вы ввели name: ${data.name}, email: ${data.email}, password: ${data.password}`
-		)
+	const onSubmit: SubmitHandler<ISignUp> = (form) => {
+		setFormData(form)
 	}
+
+	const { data: users } = api.useGetAllUsersForAuthQuery({
+		email: formData.email,
+		password: formData.password,
+	})
+
+	const router = useRouter()
+
+	const [createAccount, {}] = api.useCreateAccountMutation()
+
+	const createAccountHandler = async () => {
+		await createAccount({
+			name: formData.name,
+			email: formData.email,
+			password: formData.password,
+		})
+	}
+
+	useEffect(() => {
+		if (users?.length === 1) {
+			alert('Такой аккаунт уже есть')
+		} else if (
+			users?.length === 0 &&
+			formData.name !== null &&
+			formData.email !== null &&
+			formData.password !== null
+		) {
+			createAccountHandler()
+			dispatch(
+				setProfile({
+					name: formData?.name,
+					email: formData?.email,
+					status: 'user',
+				})
+			)
+			router.push('/profile')
+		}
+	})
 
 	return (
 		<>

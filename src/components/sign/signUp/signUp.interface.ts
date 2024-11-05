@@ -1,6 +1,6 @@
 export interface ISignUp {
-	name: string
-	email: string
-	password: string
-	repeatPassword: string
+	name: string | null
+	email: string | null
+	password: string | null
+	repeatPassword?: string
 }

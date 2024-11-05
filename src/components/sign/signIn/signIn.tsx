@@ -8,11 +8,26 @@ import { ISignIn } from './signIn.interface'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import UsualButton from '@/UI/buttons/usualButton/usualButton'
 import UsualInput from '@/UI/inputs/usualInput/usualInput'
 
+import { api } from '@/services/recipeServices'
+
+import { useAppDispatch } from '@/hooks/redux'
+import { setProfile } from '@/store/reducers/contextSlice'
+
+import { useState, useEffect } from 'react'
+
 const SignIn: FC = () => {
+	const dispatch = useAppDispatch()
+
+	const [formData, setFormData] = useState<ISignIn>({
+		email: null,
+		password: null,
+	})
+
 	const { register, handleSubmit, formState } = useForm<ISignIn>({
 		mode: 'onChange',
 	})
@@ -20,9 +35,42 @@ const SignIn: FC = () => {
 	const emailError = formState.errors.email?.message
 	const passwordError = formState.errors.password?.message
 
-	const onSubmit: SubmitHandler<ISignIn> = (data) => {
-		alert(`Вы ввели email: ${data.email}, password: ${data.password}`)
+	const onSubmit: SubmitHandler<ISignIn> = (form) => {
+		setFormData(form)
 	}
+
+	const { data: admins } = api.useGetAllAdminsForAuthQuery({
+		email: formData.email,
+		password: formData.password,
+	})
+	const { data: users } = api.useGetAllUsersForAuthQuery({
+		email: formData.email,
+		password: formData.password,
+	})
+
+	const router = useRouter()
+
+	useEffect(() => {
+		if (admins?.length === 1) {
+			dispatch(
+				setProfile({
+					name: admins[0].name,
+					email: admins[0].email,
+					status: 'admin',
+				})
+			)
+			router.push('/profile')
+		} else if (users?.length === 1) {
+			dispatch(
+				setProfile({
+					name: users[0].name,
+					email: users[0].email,
+					status: 'user',
+				})
+			)
+			router.push('/profile')
+		}
+	}, [admins, users, dispatch, router])
 
 	return (
 		<>
