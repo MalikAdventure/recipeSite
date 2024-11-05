@@ -70,7 +70,7 @@ const SignIn: FC = () => {
 			)
 			router.push('/profile')
 		}
-	}, [admins, users, dispatch, router])
+	}, [admins, users, formData])
 
 	return (
 		<>

@@ -62,9 +62,7 @@ const SignUp: FC = () => {
 	}
 
 	useEffect(() => {
-		if (users?.length === 1) {
-			alert('Такой аккаунт уже есть')
-		} else if (
+		if (
 			users?.length === 0 &&
 			formData.name !== null &&
 			formData.email !== null &&
@@ -80,7 +78,7 @@ const SignUp: FC = () => {
 			)
 			router.push('/profile')
 		}
-	})
+	}, [users, formData])
 
 	return (
 		<>
