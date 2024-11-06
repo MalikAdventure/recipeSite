@@ -18,6 +18,26 @@ export const api = createApi({
 				params: { id },
 			}),
 		}),
+		createNews: builder.mutation({
+			query: ({ title, body }) => ({
+				url: '/news',
+				method: 'POST',
+				body: { title, body },
+			}),
+		}),
+		getAllRecipes: builder.query({
+			query: ({ page = 1, per_page = 6 }) => ({
+				url: '/recipes',
+				params: { _page: page, _per_page: per_page },
+			}),
+		}),
+		createRecipe: builder.mutation({
+			query: ({ title, body }) => ({
+				url: '/recipes',
+				method: 'POST',
+				body: { title, body },
+			}),
+		}),
 		getAllAdminsForAuth: builder.query({
 			query: ({ email, password }) => ({
 				url: '/admins',

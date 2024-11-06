@@ -12,15 +12,49 @@ import exitImg from '@/assets/icons/exit.png'
 import UsualButton from '@/UI/buttons/usualButton/usualButton'
 import GlobalSearch from '@/fragments/globalSearch/globalSearch'
 import CenterModal from '@/UI/modals/centerModal/centerModal'
+import UsualInput from '@/UI/inputs/usualInput/usualInput'
+import UsualTextarea from '@/UI/inputs/usualTextarea/usualTextarea'
 
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { setShowModal } from '@/store/reducers/modalSlice'
+
+import { useState, useEffect } from 'react'
+
+import { api } from '@/services/recipeServices'
 
 const Header: FC = () => {
 	const dispatch = useAppDispatch()
 	const { showModal } = useAppSelector((state) => state.modalReducer)
 
 	const auth = sessionStorage.getItem('profile')
+
+	const [showRecipeModal, setShowRecipeModal] = useState(false)
+
+	useEffect(() => {
+		if (!showModal) {
+			setShowRecipeModal(false)
+		}
+	}, [showModal])
+
+	const [recipeTitle, setRecipeTitle] = useState('')
+	const [recipeDescription, setRecipeDescription] = useState('')
+
+	const [createRecipe, {}] = api.useCreateRecipeMutation()
+
+	const createRecipeHandler = async (
+		recipeTitle: string,
+		recipeDescription: string
+	) => {
+		if (recipeTitle !== '' && recipeDescription !== '') {
+			await createRecipe({
+				title: recipeTitle,
+				body: recipeDescription,
+			})
+			dispatch(setShowModal(false))
+			setRecipeTitle('')
+			setRecipeDescription('')
+		}
+	}
 
 	return (
 		<header className='header'>
@@ -37,15 +71,37 @@ const Header: FC = () => {
 					</Link>
 				) : (
 					<UsualButton
-						onClick={() => dispatch(setShowModal(true))}
+						onClick={() =>
+							dispatch(setShowModal(true), setShowRecipeModal(true))
+						}
 						className='header__button'>
 						Создать рецепт
 						<Image src={plusImg} alt='plus' priority />
 					</UsualButton>
 				)}
-				{showModal && (
+				{showModal && showRecipeModal && (
 					<CenterModal>
-						<div>sfafafa</div>
+						<div className='modal'>
+							<h2 className='title-text'>Создание рецепта</h2>
+							<UsualInput
+								placeholder='Напишите название рецепта'
+								value={recipeTitle}
+								onChange={(e) => setRecipeTitle(e.target.value)}
+							/>
+							<UsualTextarea
+								placeholder='Напишите описание рецепта'
+								value={recipeDescription}
+								onChange={(e) =>
+									setRecipeDescription(e.target.value)
+								}></UsualTextarea>
+							<UsualButton
+								onClick={() =>
+									createRecipeHandler(recipeTitle, recipeDescription)
+								}
+								className='modal__button'>
+								Создать рецепт
+							</UsualButton>
+						</div>
 					</CenterModal>
 				)}
 				<GlobalSearch />

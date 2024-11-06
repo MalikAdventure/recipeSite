@@ -6,6 +6,8 @@ interface IUsualInput {
 	className?: string
 	placeholder?: string
 	type?: 'text' | 'password' | 'email'
+	value?: string
+	onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 const UsualInput: FC<IUsualInput> = forwardRef((props, ref) => {

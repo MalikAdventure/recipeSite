@@ -16,11 +16,45 @@ import profileImg from '@/assets/icons/profile.png'
 import AttractiveButton from '@/UI/buttons/attractiveButton/attractiveButton'
 import UsualButton from '@/UI/buttons/usualButton/usualButton'
 import CenterModal from '@/UI/modals/centerModal/centerModal'
+import UsualInput from '@/UI/inputs/usualInput/usualInput'
+import UsualTextarea from '@/UI/inputs/usualTextarea/usualTextarea'
+
+import { useState, useEffect } from 'react'
+
+import { api } from '@/services/recipeServices'
 
 const Profile: FC = () => {
 	const dispatch = useAppDispatch()
 	const { showModal } = useAppSelector((state) => state.modalReducer)
 	const { profile } = useAppSelector((state) => state.contextReducer)
+
+	const [showNewsModal, setShowNewsModal] = useState(false)
+
+	useEffect(() => {
+		if (!showModal) {
+			setShowNewsModal(false)
+		}
+	}, [showModal])
+
+	const [newsTitle, setNewsTitle] = useState('')
+	const [newsDescription, setNewsDescription] = useState('')
+
+	const [createNews, {}] = api.useCreateNewsMutation()
+
+	const createNewsHandler = async (
+		newsTitle: string,
+		newsDescription: string
+	) => {
+		if (newsTitle !== '' && newsDescription !== '') {
+			await createNews({
+				title: newsTitle,
+				body: newsDescription,
+			})
+			dispatch(setShowModal(false))
+			setNewsTitle('')
+			setNewsDescription('')
+		}
+	}
 
 	return (
 		<>
@@ -40,28 +74,37 @@ const Profile: FC = () => {
 						</span>
 					</p>
 					<UsualButton
-						onClick={() => dispatch(setShowModal(true))}
+						onClick={() => dispatch(setShowModal(true), setShowNewsModal(true))}
 						className='profile__item'>
 						Написать новость
 					</UsualButton>
 					<Link href='/' className='profile__item'>
 						<AttractiveButton
-							onClick={() =>
-								sessionStorage.removeItem('profile')
-							}>
+							onClick={() => sessionStorage.removeItem('profile')}>
 							Выйти из аккаунта
 						</AttractiveButton>
 					</Link>
 				</div>
-				{showModal && (
+				{showModal && showNewsModal && (
 					<CenterModal>
-						<div>
-							<h2>Написать новость</h2>
-							<p>Параметр 1</p>
-							<p>Параметр 2</p>
-							<p>Параметр 3</p>
-							<p>Параметр 4</p>
-							<p>Параметр 5</p>
+						<div className='modal'>
+							<h2 className='title-text'>Написать новость</h2>
+							<UsualInput
+								placeholder='Напишите название новости'
+								value={newsTitle}
+								onChange={(e) => setNewsTitle(e.target.value)}
+							/>
+							<UsualTextarea
+								placeholder='Напишите описание новости'
+								value={newsDescription}
+								onChange={(e) =>
+									setNewsDescription(e.target.value)
+								}></UsualTextarea>
+							<UsualButton
+								onClick={() => createNewsHandler(newsTitle, newsDescription)}
+								className='modal__button'>
+								Создать новость
+							</UsualButton>
 						</div>
 					</CenterModal>
 				)}
