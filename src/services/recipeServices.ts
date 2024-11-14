@@ -31,6 +31,12 @@ export const api = createApi({
 				params: { _page: page, _per_page: per_page },
 			}),
 		}),
+		getRecipeById: builder.query({
+			query: (id) => ({
+				url: `/recipes`,
+				params: { id },
+			}),
+		}),
 		createRecipe: builder.mutation({
 			query: ({ title, body }) => ({
 				url: '/recipes',

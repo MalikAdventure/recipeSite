@@ -4,6 +4,7 @@ import modalReducer from './reducers/modalSlice'
 import calorieCalculatorReducer from './reducers/calorieCalculatorSlice'
 import allNewsReducer from './reducers/allNewsSlice'
 import contextReducer from './reducers/contextSlice'
+import allRecipesReducer from './reducers/allRecipesSlice'
 import { api } from '@/services/recipeServices'
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
 	calorieCalculatorReducer,
 	allNewsReducer,
 	contextReducer,
+	allRecipesReducer,
 	[api.reducerPath]: api.reducer,
 })
 

@@ -7,7 +7,7 @@ import { INews } from '@/types/INews'
 
 import Image from 'next/image'
 
-import SmallSpinner from '@/UI/preloaders/spinner/spinner'
+import Spinner from '@/UI/preloaders/spinner/spinner'
 
 import noneImg from '@/assets/imgs/none.png'
 
@@ -34,10 +34,10 @@ const NewsDetailed: FC = () => {
 							<p className='description-text'>{news.body}</p>
 						</div>
 					))}
-				{isLoading && <SmallSpinner />}
-				{isFetching && !isLoading && <SmallSpinner />}
+				{isLoading && <Spinner />}
+				{isFetching && !isLoading && <Spinner />}
 				{error && (
-					<h2 className='book-cards-list__text error-text'>
+					<h2 className='error-text'>
 						Ошибка при загрузки данных
 					</h2>
 				)}
