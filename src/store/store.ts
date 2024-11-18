@@ -2,18 +2,18 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import upReducer from './reducers/upSlice'
 import modalReducer from './reducers/modalSlice'
 import calorieCalculatorReducer from './reducers/calorieCalculatorSlice'
-import allNewsReducer from './reducers/allNewsSlice'
+import newsReducer from './reducers/newsSlice'
 import contextReducer from './reducers/contextSlice'
-import allRecipesReducer from './reducers/allRecipesSlice'
+import recipesReducer from './reducers/recipesSlice'
 import { api } from '@/services/recipeServices'
 
 const rootReducer = combineReducers({
 	upReducer,
 	modalReducer,
 	calorieCalculatorReducer,
-	allNewsReducer,
+	newsReducer,
 	contextReducer,
-	allRecipesReducer,
+	recipesReducer,
 	[api.reducerPath]: api.reducer,
 })
 

@@ -14,7 +14,9 @@
 		margin-bottom: 30px;
 	}
 
-	&__button {
-		margin: 0 auto;
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
 	}
 }

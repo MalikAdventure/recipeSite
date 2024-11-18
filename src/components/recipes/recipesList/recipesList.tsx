@@ -14,15 +14,19 @@ import Spinner from '@/UI/preloaders/spinner/spinner'
 import { api } from '@/services/recipeServices'
 
 import { useAppSelector, useAppDispatch } from '@/hooks/redux'
-import { changePage } from '@/store/reducers/allRecipesSlice'
+import {
+	changePage,
+	setRecipes,
+	deleteRecipes,
+} from '@/store/reducers/recipesSlice'
 
 import { getPageCount } from '@/utils/pagePagination/pagePagination'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 const RecipesList: FC = () => {
 	const dispatch = useAppDispatch()
-	const { page } = useAppSelector((state) => state.allRecipesReducer)
+	const { page, recipes } = useAppSelector((state) => state.recipesReducer)
 	const per_page = 6
 
 	const { data, isLoading, isFetching, error } = api.useGetAllRecipesQuery({
@@ -33,13 +37,11 @@ const RecipesList: FC = () => {
 	const totalCount = data?.items
 	const totalPages = getPageCount(totalCount, per_page)
 
-	const [recipes, setRecipes] = useState<IRecipe[]>([])
-
 	useEffect(() => {
 		if (data) {
-			setRecipes([...recipes, ...data.data])
+			dispatch(setRecipes(data.data))
 		}
-	}, [data])
+	}, [data, dispatch])
 
 	return (
 		<div className='recipes-list'>
@@ -61,13 +63,22 @@ const RecipesList: FC = () => {
 					</h2>
 				)}
 			</div>
-			{data && page < totalPages && (
-				<UsualButton
-					onClick={() => dispatch(changePage(page + 1))}
-					className='recipes-list__button'>
-					Показать еще
-				</UsualButton>
-			)}
+			<div className='recipes-list__buttons'>
+				{data && page < totalPages && (
+					<UsualButton
+						onClick={() => dispatch(changePage(page + 1))}
+						className='recipes-list__button'>
+						Показать еще
+					</UsualButton>
+				)}
+				{data && page > 1 && (
+					<UsualButton
+						onClick={() => dispatch(deleteRecipes())}
+						className='recipes-list__button'>
+						Скрыть рецепты
+					</UsualButton>
+				)}
+			</div>
 		</div>
 	)
 }

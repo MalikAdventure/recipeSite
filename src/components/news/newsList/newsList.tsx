@@ -14,13 +14,13 @@ import PaginationButtons from '@/fragments/paginationButtons/paginationButtons'
 import { api } from '@/services/recipeServices'
 
 import { useAppSelector, useAppDispatch } from '@/hooks/redux'
-import { changePage } from '@/store/reducers/allNewsSlice'
+import { changePage } from '@/store/reducers/newsSlice'
 
 import { getPageCount } from '@/utils/pagePagination/pagePagination'
 
 const NewsList: FC = () => {
 	const dispatch = useAppDispatch()
-	const { page } = useAppSelector((state) => state.allNewsReducer)
+	const { page } = useAppSelector((state) => state.newsReducer)
 	const per_page = 6
 
 	const { data, isLoading, isFetching, error } = api.useGetAllNewsQuery({

@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export interface AllNewsState {
+export interface NewsState {
 	page: number
 }
 
-const initialState: AllNewsState = {
+const initialState: NewsState = {
 	page: 1,
 }
 
-export const allNewsSlice = createSlice({
-	name: 'allNews',
+export const newsSlice = createSlice({
+	name: 'news',
 	initialState,
 	reducers: {
 		changePage: (state, action: PayloadAction<number>) => {
@@ -18,5 +18,5 @@ export const allNewsSlice = createSlice({
 	},
 })
 
-export const { changePage } = allNewsSlice.actions
-export default allNewsSlice.reducer
+export const { changePage } = newsSlice.actions
+export default newsSlice.reducer
