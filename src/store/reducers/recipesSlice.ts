@@ -1,15 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IRecipe } from '@/types/IRecipe'
-
 export interface RecipesState {
 	page: number
-	recipes: IRecipe[]
+	option: string
 }
 
 const initialState: RecipesState = {
 	page: 1,
-	recipes: [],
+	option: '',
 }
 
 export const recipesSlice = createSlice({
@@ -19,18 +17,11 @@ export const recipesSlice = createSlice({
 		changePage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload
 		},
-		setRecipes: (state, action: PayloadAction<IRecipe[]>) => {
-			const newRecipes = action.payload.filter(
-				(recipe) => !state.recipes.some((r) => r.id === recipe.id)
-			)
-			state.recipes = [...state.recipes, ...newRecipes]
-		},
-		deleteRecipes: (state) => {
-			state.recipes = []
-			state.page = 1
+		setOption: (state, action: PayloadAction<string>) => {
+			state.option = action.payload
 		},
 	},
 })
 
-export const { changePage, setRecipes, deleteRecipes } = recipesSlice.actions
+export const { changePage, setOption } = recipesSlice.actions
 export default recipesSlice.reducer

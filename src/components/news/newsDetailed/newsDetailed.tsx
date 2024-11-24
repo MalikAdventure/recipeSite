@@ -32,15 +32,21 @@ const NewsDetailed: FC = () => {
 							</h1>
 							<Image src={noneImg} alt='news' priority />
 							<p className='description-text'>{news.body}</p>
+							<p className='description-text'>
+								{new Date(news.data_updated).toLocaleString('ru-RU', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+									hour: 'numeric',
+									minute: 'numeric',
+									second: 'numeric',
+								})}
+							</p>
 						</div>
 					))}
 				{isLoading && <Spinner />}
 				{isFetching && !isLoading && <Spinner />}
-				{error && (
-					<h2 className='error-text'>
-						Ошибка при загрузки данных
-					</h2>
-				)}
+				{error && <h2 className='error-text'>Ошибка при загрузки данных</h2>}
 			</div>
 		</>
 	)

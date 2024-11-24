@@ -2,25 +2,26 @@
 
 import './newsList.scss'
 
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { INews } from '@/types/INews'
 
 import Link from 'next/link'
 
 import NewsItem from '../newsItem/newsItem'
 import Spinner from '@/UI/preloaders/spinner/spinner'
-import PaginationButtons from '@/fragments/paginationButtons/paginationButtons'
+import UsualButton from '@/UI/buttons/usualButton/usualButton'
+import AttractiveButton from '@/UI/buttons/attractiveButton/attractiveButton'
 
 import { api } from '@/services/recipeServices'
 
 import { useAppSelector, useAppDispatch } from '@/hooks/redux'
-import { changePage } from '@/store/reducers/newsSlice'
+import { changePage, setNews, deleteNews } from '@/store/reducers/newsSlice'
 
 import { getPageCount } from '@/utils/pagePagination/pagePagination'
 
 const NewsList: FC = () => {
 	const dispatch = useAppDispatch()
-	const { page } = useAppSelector((state) => state.newsReducer)
+	const { page, news } = useAppSelector((state) => state.newsReducer)
 	const per_page = 6
 
 	const { data, isLoading, isFetching, error } = api.useGetAllNewsQuery({
@@ -32,6 +33,15 @@ const NewsList: FC = () => {
 	const totalPages = getPageCount(totalCount, per_page)
 
 	const { contextPage } = useAppSelector((state) => state.contextReducer)
+
+	useEffect(() => {
+		if (contextPage === 'main') {
+			dispatch(deleteNews())
+		}
+		if (data) {
+			dispatch(setNews(data.data))
+		}
+	}, [data, dispatch, contextPage])
 
 	return (
 		<>
@@ -45,10 +55,9 @@ const NewsList: FC = () => {
 					)}
 				</div>
 				<div className='news-list__box'>
-					{data &&
-						data.data.map((news: INews) => (
-							<NewsItem key={news.id} news={news} />
-						))}
+					{news.map((news: INews) => (
+						<NewsItem key={news.id} news={news} />
+					))}
 					{isLoading && <Spinner />}
 					{isFetching && !isLoading && <Spinner />}
 					{error && (
@@ -57,13 +66,22 @@ const NewsList: FC = () => {
 						</h2>
 					)}
 				</div>
-				{data && contextPage === 'listOfNews' && (
-					<PaginationButtons
-						totalPages={totalPages}
-						page={page}
-						changePage={(page: number) => dispatch(changePage(page))}
-					/>
-				)}
+				<div className='news-list__buttons'>
+					{data && contextPage === 'listOfNews' && page < totalPages && (
+						<UsualButton
+							onClick={() => dispatch(changePage(page + 1))}
+							className='news-list__button'>
+							Показать еще
+						</UsualButton>
+					)}
+					{data && page > 1 && (
+						<AttractiveButton
+							onClick={() => dispatch(deleteNews())}
+							className='news-list__button'>
+							Скрыть новости
+						</AttractiveButton>
+					)}
+				</div>
 			</div>
 		</>
 	)

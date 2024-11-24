@@ -13,6 +13,16 @@ interface INewsItem {
 }
 
 const NewsItem: FC<INewsItem> = ({ news }) => {
+	const date = new Date(news.data_updated)
+	const formattedDate = date.toLocaleString('ru-RU', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric',
+	})
+
 	return (
 		<>
 			<Link href={`/list-of-news/${news.id}`} className='news-item'>
@@ -26,6 +36,7 @@ const NewsItem: FC<INewsItem> = ({ news }) => {
 				<p className='description-text'>
 					{news.body.length > 200 ? `${news.body.slice(0, 200)}...` : news.body}
 				</p>
+				<p className='description-text'>{formattedDate}</p>
 			</Link>
 		</>
 	)

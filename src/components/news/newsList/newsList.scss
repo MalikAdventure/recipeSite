@@ -19,4 +19,11 @@
 		gap: 30px 4%;
 		margin-bottom: 30px;
 	}
+
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+	}
 }

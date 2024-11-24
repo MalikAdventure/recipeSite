@@ -13,6 +13,16 @@ interface IRecipeItem {
 }
 
 const RecipesItem: FC<IRecipeItem> = ({ recipe }) => {
+	const date = new Date(recipe.data_updated)
+	const formattedDate = date.toLocaleString('ru-RU', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric',
+	})
+
 	return (
 		<>
 			<Link href={`/recipes/${recipe.id}`} className='recipes-item'>
@@ -28,6 +38,7 @@ const RecipesItem: FC<IRecipeItem> = ({ recipe }) => {
 						? `${recipe.body.slice(0, 200)}...`
 						: recipe.body}
 				</p>
+				<p className='description-text'>{formattedDate}</p>
 			</Link>
 		</>
 	)

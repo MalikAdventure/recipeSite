@@ -32,6 +32,16 @@ const RecipesDetailed: FC = () => {
 							</h1>
 							<Image src={noneImg} alt='recipe' priority />
 							<p className='description-text'>{recipe.body}</p>
+							<p className='description-text'>
+								{new Date(recipe.data_updated).toLocaleString('ru-RU', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+									hour: 'numeric',
+									minute: 'numeric',
+									second: 'numeric',
+								})}
+							</p>
 						</div>
 					))}
 				{isLoading && <Spinner />}

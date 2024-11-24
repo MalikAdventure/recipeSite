@@ -66,9 +66,11 @@ const MenuTiles: FC = () => {
 					<p className='menu-tiles__title title-text'>Десерты</p>
 				</Link>
 			</div>
-			<UsualButton className='menu-tiles__button'>
-				Посмотреть все рецепты
-			</UsualButton>
+			<Link href='/recipes'>
+				<UsualButton className='menu-tiles__button'>
+					Посмотреть все рецепты
+				</UsualButton>
+			</Link>
 		</div>
 	)
 }
