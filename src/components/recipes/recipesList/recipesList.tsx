@@ -20,14 +20,16 @@ import { getPageCount } from '@/utils/pagePagination/pagePagination'
 
 const RecipesList: FC = () => {
 	const dispatch = useAppDispatch()
-	const { page } = useAppSelector((state) => state.recipesReducer)
-	const { option } = useAppSelector((state) => state.recipesReducer)
+	const { page, option, search } = useAppSelector(
+		(state) => state.recipesReducer
+	)
 	const per_page = 6
 
 	const { data, isLoading, isFetching, error } = api.useGetAllRecipesQuery({
 		page,
 		per_page,
 		option,
+		search,
 	})
 
 	const totalCount = data?.items
@@ -51,6 +53,11 @@ const RecipesList: FC = () => {
 				{error && (
 					<h2 className='book-cards-list__text error-text'>
 						Ошибка при загрузки данных
+					</h2>
+				)}
+				{data?.data.length === 0 && !isLoading && !isFetching && (
+					<h2 className='book-cards-list__text title-text'>
+						Рецепты не найдены
 					</h2>
 				)}
 			</div>

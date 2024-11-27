@@ -26,16 +26,23 @@ export const api = createApi({
 			}),
 		}),
 		getAllRecipes: builder.query({
-			query: ({ page = 1, per_page = 6, sort = '', option = '' }) => {
+			query: ({
+				page = 1,
+				per_page = 6,
+				sort = '',
+				option = '',
+				search = '',
+			}) => {
 				const params = {
 					_page: page,
 					_per_page: per_page,
 					_sort: sort,
+					title: search,
 				}
 				if (option === 'new') {
-					params._sort = 'data_updated'
-				} else if (option === 'old') {
 					params._sort = '-data_updated'
+				} else if (option === 'old') {
+					params._sort = 'data_updated'
 				} else {
 					params._sort = ''
 				}
