@@ -32,8 +32,9 @@ export const api = createApi({
 				sort = '',
 				option = '',
 				search = '',
+				filter = [],
 			}) => {
-				const params = {
+				const params: { [key: string]: string } = {
 					_page: page,
 					_per_page: per_page,
 					_sort: sort,
@@ -46,6 +47,9 @@ export const api = createApi({
 				} else {
 					params._sort = ''
 				}
+				filter.forEach(({ name, value }: { name: string; value: string }) => {
+					params[name] = value
+				})
 				return {
 					url: '/recipes',
 					params,

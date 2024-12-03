@@ -20,7 +20,7 @@ import { getPageCount } from '@/utils/pagePagination/pagePagination'
 
 const RecipesList: FC = () => {
 	const dispatch = useAppDispatch()
-	const { page, option, search } = useAppSelector(
+	const { page, option, search, filter } = useAppSelector(
 		(state) => state.recipesReducer
 	)
 	const per_page = 6
@@ -30,6 +30,7 @@ const RecipesList: FC = () => {
 		per_page,
 		option,
 		search,
+		filter,
 	})
 
 	const totalCount = data?.items

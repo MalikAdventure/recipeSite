@@ -10,4 +10,25 @@
 			margin-right: 0;
 		}
 	}
+
+	&__topic {
+		margin-bottom: 30px;
+	}
+
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	&__filter {
+		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
 }
