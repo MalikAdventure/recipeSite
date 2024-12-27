@@ -37,21 +37,38 @@ const Header: FC = () => {
 	}, [showModal])
 
 	const [recipeTitle, setRecipeTitle] = useState('')
+	const [recipeTime, setRecipeTime] = useState('')
+	const [recipeCalories, setRecipeCalories] = useState('')
+	const [recipeMeal, setRecipeMeal] = useState('')
+	const [recipeDish, setRecipeDish] = useState('')
+	const [recipeCuisine, setRecipeCuisine] = useState('')
 	const [recipeDescription, setRecipeDescription] = useState('')
 
 	const [createRecipe, {}] = api.useCreateRecipeMutation()
-
 	const createRecipeHandler = async (
 		recipeTitle: string,
 		recipeDescription: string
 	) => {
 		if (recipeTitle !== '' && recipeDescription !== '') {
+			const date = new Date().toISOString()
 			await createRecipe({
 				title: recipeTitle,
 				body: recipeDescription,
+				cooking_time: recipeTime,
+				calories_per_100_grams: recipeCalories,
+				type_of_meal: recipeMeal,
+				type_of_dish: recipeDish,
+				world_cuisine: recipeCuisine,
+				data_created: date,
+				data_updated: date,
 			})
 			dispatch(setShowModal(false))
 			setRecipeTitle('')
+			setRecipeTime('')
+			setRecipeCalories('')
+			setRecipeMeal('')
+			setRecipeDish('')
+			setRecipeCuisine('')
 			setRecipeDescription('')
 		}
 	}
@@ -87,6 +104,31 @@ const Header: FC = () => {
 								placeholder='Напишите название рецепта'
 								value={recipeTitle}
 								onChange={(e) => setRecipeTitle(e.target.value)}
+							/>
+							<UsualInput
+								placeholder='Напишите время готовки'
+								value={recipeTime}
+								onChange={(e) => setRecipeTime(e.target.value)}
+							/>
+							<UsualInput
+								placeholder='Напишите количество калорий на 100 грамм'
+								value={recipeCalories}
+								onChange={(e) => setRecipeCalories(e.target.value)}
+							/>
+							<UsualInput
+								placeholder='Напишите тип еды'
+								value={recipeMeal}
+								onChange={(e) => setRecipeMeal(e.target.value)}
+							/>
+							<UsualInput
+								placeholder='Напишите тип блюда'
+								value={recipeDish}
+								onChange={(e) => setRecipeDish(e.target.value)}
+							/>
+							<UsualInput
+								placeholder='Напишите кухню'
+								value={recipeCuisine}
+								onChange={(e) => setRecipeCuisine(e.target.value)}
 							/>
 							<UsualTextarea
 								placeholder='Напишите описание рецепта'

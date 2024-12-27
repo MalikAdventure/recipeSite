@@ -5,25 +5,44 @@ export const api = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'http://localhost:3001/',
 	}),
+	tagTypes: ['News', 'Recipe'],
 	endpoints: (builder) => ({
 		getAllNews: builder.query({
 			query: ({ page = 1, per_page = 6 }) => ({
 				url: '/news',
 				params: { _page: page, _per_page: per_page },
 			}),
+			providesTags: ['News'],
 		}),
 		getNewsById: builder.query({
 			query: (id) => ({
 				url: `/news`,
 				params: { id },
 			}),
+			providesTags: ['News'],
 		}),
 		createNews: builder.mutation({
-			query: ({ title, body }) => ({
+			query: ({ title, body, data_created, data_updated }) => ({
 				url: '/news',
 				method: 'POST',
-				body: { title, body },
+				body: { title, body, data_created, data_updated },
 			}),
+			invalidatesTags: ['News'],
+		}),
+		updateNews: builder.mutation({
+			query: ({ id, title, body, data_created, data_updated }) => ({
+				url: `/news/${id}`,
+				method: 'PUT',
+				body: { title, body, data_created, data_updated },
+			}),
+			invalidatesTags: ['News'],
+		}),
+		deleteNews: builder.mutation({
+			query: (id) => ({
+				url: `/news/${id}`,
+				method: 'DELETE',
+			}),
+			invalidatesTags: ['News'],
 		}),
 		getAllRecipes: builder.query({
 			query: ({
@@ -55,19 +74,78 @@ export const api = createApi({
 					params,
 				}
 			},
+			providesTags: ['Recipe'],
 		}),
 		getRecipeById: builder.query({
 			query: (id) => ({
 				url: `/recipes`,
 				params: { id },
 			}),
+			providesTags: ['Recipe'],
 		}),
 		createRecipe: builder.mutation({
-			query: ({ title, body }) => ({
+			query: ({
+				title,
+				body,
+				cooking_time,
+				calories_per_100_grams,
+				type_of_meal,
+				type_of_dish,
+				world_cuisine,
+				data_created,
+				data_updated,
+			}) => ({
 				url: '/recipes',
 				method: 'POST',
-				body: { title, body },
+				body: {
+					title,
+					body,
+					cooking_time,
+					calories_per_100_grams,
+					type_of_meal,
+					type_of_dish,
+					world_cuisine,
+					data_created,
+					data_updated,
+				},
 			}),
+			invalidatesTags: ['Recipe'],
+		}),
+		updateRecipe: builder.mutation({
+			query: ({
+				id,
+				title,
+				body,
+				cooking_time,
+				calories_per_100_grams,
+				type_of_meal,
+				type_of_dish,
+				world_cuisine,
+				data_created,
+				data_updated,
+			}) => ({
+				url: `/recipes/${id}`,
+				method: 'PUT',
+				body: {
+					title,
+					body,
+					cooking_time,
+					calories_per_100_grams,
+					type_of_meal,
+					type_of_dish,
+					world_cuisine,
+					data_created,
+					data_updated,
+				},
+			}),
+			invalidatesTags: ['Recipe'],
+		}),
+		deleteRecipe: builder.mutation({
+			query: (id) => ({
+				url: `/recipes/${id}`,
+				method: 'DELETE',
+			}),
+			invalidatesTags: ['Recipe'],
 		}),
 		getAllAdminsForAuth: builder.query({
 			query: ({ email, password }) => ({

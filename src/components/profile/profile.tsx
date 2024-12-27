@@ -40,21 +40,25 @@ const Profile: FC = () => {
 	const [newsDescription, setNewsDescription] = useState('')
 
 	const [createNews, {}] = api.useCreateNewsMutation()
-
 	const createNewsHandler = async (
 		newsTitle: string,
 		newsDescription: string
 	) => {
 		if (newsTitle !== '' && newsDescription !== '') {
+			const date = new Date().toISOString()
 			await createNews({
 				title: newsTitle,
 				body: newsDescription,
+				data_created: date,
+				data_updated: date,
 			})
 			dispatch(setShowModal(false))
 			setNewsTitle('')
 			setNewsDescription('')
 		}
 	}
+
+	const auth = sessionStorage.getItem('profile')
 
 	return (
 		<>
@@ -73,11 +77,19 @@ const Profile: FC = () => {
 								: 'Гость'}
 						</span>
 					</p>
-					<UsualButton
-						onClick={() => dispatch(setShowModal(true), setShowNewsModal(true))}
-						className='profile__item'>
-						Написать новость
-					</UsualButton>
+					{!auth ? (
+						<Link href='/authorization' className='profile__item'>
+							<UsualButton>Написать новость</UsualButton>
+						</Link>
+					) : (
+						<UsualButton
+							onClick={() =>
+								dispatch(setShowModal(true), setShowNewsModal(true))
+							}
+							className='profile__item'>
+							Написать новость
+						</UsualButton>
+					)}
 					<Link href='/' className='profile__item'>
 						<AttractiveButton
 							onClick={() => sessionStorage.removeItem('profile')}>
