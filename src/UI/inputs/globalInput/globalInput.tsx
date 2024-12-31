@@ -1,10 +1,13 @@
 import classes from './globalInput.module.scss'
 
-import { FC } from 'react'
+import { FC, ChangeEvent } from 'react'
 
 interface IGlobalInput {
 	className?: string
 	placeholder?: string
+	defaultValue?: string
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+	onClick?: () => void
 }
 
 const GlobalInput: FC<IGlobalInput> = ({ placeholder, ...props }) => {

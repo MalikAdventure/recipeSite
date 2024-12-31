@@ -8,9 +8,9 @@ export const api = createApi({
 	tagTypes: ['News', 'Recipe'],
 	endpoints: (builder) => ({
 		getAllNews: builder.query({
-			query: ({ page = 1, per_page = 6 }) => ({
+			query: ({ page = 1, per_page = 6, search }) => ({
 				url: '/news',
-				params: { _page: page, _per_page: per_page },
+				params: { _page: page, _per_page: per_page, title: search },
 			}),
 			providesTags: ['News'],
 		}),
