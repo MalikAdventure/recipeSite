@@ -12,4 +12,34 @@
 	&__wrapper-right {
 		width: 75%;
 	}
+
+	&__navigation-mobile {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.main-container {
+		&__wrapper-left {
+			width: 30%;
+		}
+		&__wrapper-right {
+			width: 65%;
+		}
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.main-container {
+		&__wrapper-left {
+			width: 0%;
+			display: none;
+		}
+		&__wrapper-right {
+			width: 100%;
+		}
+		&__navigation-mobile {
+			display: block;
+		}
+	}
 }

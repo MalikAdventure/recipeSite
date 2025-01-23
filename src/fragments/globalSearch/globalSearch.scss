@@ -26,3 +26,20 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 1900px) {
+	.global-search {
+		&__results {
+			width: 550px;
+		}
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.global-search {
+		gap: 10px;
+		&__results {
+			width: 350px;
+		}
+	}
+}

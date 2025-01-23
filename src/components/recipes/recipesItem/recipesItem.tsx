@@ -26,7 +26,12 @@ const RecipesItem: FC<IRecipeItem> = ({ recipe }) => {
 	return (
 		<>
 			<Link href={`/recipes/${recipe.id}`} className='recipes-item'>
-				<Image src={noneImg} alt='recipe' priority />
+				<Image
+					src={noneImg}
+					alt='recipe'
+					priority
+					className='recipes-item__img'
+				/>
 				<h2 className='recipes-item__title title-text'>
 					{`${recipe.id} `}
 					{recipe.title.length > 50

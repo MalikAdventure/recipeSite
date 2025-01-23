@@ -18,3 +18,11 @@
 		}
 	}
 }
+
+@media only screen and (max-width: 1300px) {
+	.navigation {
+		&__list {
+			position: static;
+		}
+	}
+}

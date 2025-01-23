@@ -81,8 +81,8 @@ const Header: FC = () => {
 				</Link>
 				{!auth ? (
 					<Link href='/authorization' className='header__button-link'>
-						<UsualButton className='header__button'>
-							Создать рецепт
+						<UsualButton className='header__button header__button_before'>
+							{/* Создать рецепт */}
 							<Image src={plusImg} alt='plus' priority />
 						</UsualButton>
 					</Link>
@@ -91,8 +91,8 @@ const Header: FC = () => {
 						onClick={() =>
 							dispatch(setShowModal(true), setShowRecipeModal(true))
 						}
-						className='header__button'>
-						Создать рецепт
+						className='header__button header__button_before'>
+						{/* Создать рецепт */}
 						<Image src={plusImg} alt='plus' priority />
 					</UsualButton>
 				)}

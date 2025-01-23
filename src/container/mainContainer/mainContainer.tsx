@@ -21,7 +21,12 @@ const MainContainer: FC<IMainContainer> = ({ children }) => {
 				<div className='main-container__wrapper-left'>
 					<Navigation />
 				</div>
-				<main className='main-container__wrapper-right'>{children}</main>
+				<main className='main-container__wrapper-right'>
+					<div className='main-container__navigation-mobile'>
+						<Navigation />
+					</div>
+					{children}
+				</main>
 			</div>
 			<UpScroll />
 			<Footer />

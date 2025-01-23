@@ -26,7 +26,7 @@ const NewsItem: FC<INewsItem> = ({ news }) => {
 	return (
 		<>
 			<Link href={`/list-of-news/${news.id}`} className='news-item'>
-				<Image src={noneImg} alt='news' priority />
+				<Image src={noneImg} alt='news' priority className='news-item__img' />
 				<h2 className='news-item__title title-text'>
 					{`${news.id} `}
 					{news.title.length > 50

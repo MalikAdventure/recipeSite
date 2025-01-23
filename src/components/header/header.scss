@@ -16,4 +16,30 @@
 	&__button-link {
 		text-decoration: none;
 	}
+
+	&__button_before {
+		&::before {
+			content: 'Создать рецепт';
+		}
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.header {
+		&__button_before {
+			&::before {
+				content: 'Создать';
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.header {
+		&__button_before {
+			&::before {
+				content: none;
+			}
+		}
+	}
 }

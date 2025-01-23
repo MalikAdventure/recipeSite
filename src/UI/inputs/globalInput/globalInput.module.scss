@@ -6,3 +6,15 @@
 	border: 2px solid var(--darkGrey);
 	border-radius: 10px;
 }
+
+@media only screen and (max-width: 1900px) {
+	.globalInput {
+		width: 550px;
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.globalInput {
+		width: 350px;
+	}
+}

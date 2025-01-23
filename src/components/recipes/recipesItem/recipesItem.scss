@@ -8,4 +8,17 @@
 	border-radius: 20px;
 	color: var(--black);
 	text-decoration: none;
+	&__img {
+		width: 600px;
+		height: 400px;
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.recipes-item {
+		&__img {
+			width: 300px;
+			height: 200px;
+		}
+	}
 }
