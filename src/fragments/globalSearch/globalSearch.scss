@@ -1,0 +1,45 @@
+.global-search {
+	display: flex;
+	gap: 20px;
+
+	&__results {
+		position: absolute;
+		z-index: 1;
+		top: 65px;
+		width: 850px;
+		max-height: 50vh;
+		overflow-y: auto;
+		background-color: var(--lightGrey);
+		border: 2px solid var(--darkGrey);
+		padding: 10px;
+		border-radius: 10px;
+		display: grid;
+		gap: 10px;
+	}
+
+	&__result {
+		cursor: pointer;
+		color: var(--black);
+		text-decoration: none;
+		&:hover {
+			color: var(--yellow);
+		}
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.global-search {
+		&__results {
+			width: 550px;
+		}
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.global-search {
+		gap: 10px;
+		&__results {
+			width: 350px;
+		}
+	}
+}

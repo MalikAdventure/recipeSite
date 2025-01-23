@@ -1,0 +1,19 @@
+.globalButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	background-color: var(--lightGrey);
+	border: 2px solid var(--darkGrey);
+	border-radius: 10px;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active {
+		opacity: 0.4;
+	}
+}

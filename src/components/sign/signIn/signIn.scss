@@ -1,0 +1,27 @@
+.sign-in {
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__item {
+		margin-bottom: 20px;
+	}
+
+	&__buttons {
+		display: flex;
+		align-items: center;
+	}
+
+	&__button {
+		margin-right: 20px;
+	}
+
+	&__link {
+		> a {
+			color: var(--black);
+			&:hover {
+				color: var(--yellow);
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+.attractiveButton {
+	padding: 0 10px;
+	height: 40px;
+	border-radius: 10px;
+	background-color: var(--yellow);
+	border: none;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&:active {
+		opacity: 0.4;
+	}
+}

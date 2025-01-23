@@ -1,0 +1,20 @@
+.globalInput {
+	width: 850px;
+	height: 50px;
+	padding: 0 10px;
+	background-color: var(--lightGrey);
+	border: 2px solid var(--darkGrey);
+	border-radius: 10px;
+}
+
+@media only screen and (max-width: 1900px) {
+	.globalInput {
+		width: 550px;
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.globalInput {
+		width: 350px;
+	}
+}

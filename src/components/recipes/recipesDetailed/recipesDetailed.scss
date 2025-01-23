@@ -1,0 +1,14 @@
+.recipes-detailed {
+	&__box {
+		margin-bottom: 30px;
+	}
+
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 20px;
+	}
+}

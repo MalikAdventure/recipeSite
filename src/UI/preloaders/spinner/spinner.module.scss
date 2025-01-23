@@ -1,0 +1,36 @@
+.spinner {
+	display: block !important;
+	margin: 60px auto;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+	border: 20px solid;
+	box-sizing: border-box;
+	animation: animloader 1s linear infinite alternate;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+@keyframes animloader {
+	0% {
+		border-color: #337ab7 rgba(51, 122, 183, 0) rgba(51, 122, 183, 0)
+			rgba(51, 122, 183, 0);
+	}
+	33% {
+		border-color: #337ab7 #337ab7 rgba(51, 122, 183, 0) rgba(51, 122, 183, 0);
+	}
+	66% {
+		border-color: #337ab7 #337ab7 #337ab7 rgba(51, 122, 183, 0);
+	}
+	100% {
+		border-color: #337ab7 #337ab7 #337ab7 #337ab7;
+	}
+}

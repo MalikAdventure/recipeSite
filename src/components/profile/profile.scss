@@ -1,0 +1,13 @@
+.profile {
+	display: flex;
+	gap: 60px;
+
+	&__item {
+		display: block;
+		margin-bottom: 30px;
+		text-decoration: none;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

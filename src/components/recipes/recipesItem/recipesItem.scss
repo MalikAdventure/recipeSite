@@ -1,0 +1,24 @@
+.recipes-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 48%;
+	padding: 20px;
+	box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+	color: var(--black);
+	text-decoration: none;
+	&__img {
+		width: 600px;
+		height: 400px;
+	}
+}
+
+@media only screen and (max-width: 1900px) {
+	.recipes-item {
+		&__img {
+			width: 300px;
+			height: 200px;
+		}
+	}
+}

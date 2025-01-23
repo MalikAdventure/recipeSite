@@ -1,0 +1,28 @@
+.navigation {
+	&__list {
+		position: fixed;
+		padding: 30px;
+		list-style-type: none;
+		background-color: var(--yellow);
+		border-radius: 10px;
+	}
+
+	&__item {
+		margin-bottom: 20px;
+		> a {
+			color: var(--black);
+			text-decoration: none;
+			&:hover {
+				color: var(--white);
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.navigation {
+		&__list {
+			position: static;
+		}
+	}
+}
