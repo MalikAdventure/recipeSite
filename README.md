@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pet-проект веб-сайта с рецептами (Recipe Site)
 
-## Getting Started
+## Описание
 
-First, run the development server:
+Recipe Site - это современное веб-приложение, которое имитирует сайт с рецептами. В нем можно найти и посмотреть рецепты в наличии и создать свой рецепт.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Функции
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Найти рецепты по поиску, сортировки и фильтрам
+- Добавить свой рецепт
+- Изменить или удалить новость или рецепт (если вы администратор)
+- Посчитать свои калории
+- Авторизация и регистрация
+- Вернутся на вверх страницы
+- Определение id и местонахождения
+- Свой локальный Json Server
+- Реализованная быстрая статика (через MDX)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Технологии
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next - фреймворк поверх React
+- React - фреймворк
+- TypeScript - строгая типизация для JavaScript
+- Sass - предпроцессор css (использовался SCSS)
+- Redux Toolkit (redux и rtk query) - глобальный state менеджер
+- Vite - сборщик проекта
+- SWC - высокопроизводительный компилятор JavaScript и CSS
+- React Hook Form - библиотека для работы с формами
+- Json Server - локальный сервер
+- MDX - возможность использования md на сайте
+- Concurrently - запуск нескольких npm пакетов одновременно
 
-## Learn More
+## Запуск проекта
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Скачать репозиторий
+2. Открыть проект в редакторе кода
+3. Открыть терминал
+4. Написать `npm install` или `npm i`
+5. Написать `npm run dev:server`
+6. Перейти по ссылке с портом 3000 в терминале
