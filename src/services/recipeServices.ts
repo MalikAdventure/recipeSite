@@ -147,6 +147,12 @@ export const api = createApi({
 			}),
 			invalidatesTags: ['Recipe'],
 		}),
+		getAllSeasonalRecipes: builder.query({
+			query: (season) => ({
+				url: '/seasonalRecipes',
+				params: { season },
+			}),
+		}),
 		getAllAdminsForAuth: builder.query({
 			query: ({ email, password }) => ({
 				url: '/admins',

@@ -7,6 +7,7 @@ export interface ContextState {
 	country: string | null
 	region: string | null
 	city: string | null
+	season: string | null
 }
 
 const initialState: ContextState = {
@@ -16,6 +17,7 @@ const initialState: ContextState = {
 	country: sessionStorage.getItem('country') || null,
 	region: sessionStorage.getItem('region') || null,
 	city: sessionStorage.getItem('city') || null,
+	season: null,
 }
 
 export const contextSlice = createSlice({
@@ -54,6 +56,9 @@ export const contextSlice = createSlice({
 			state.city = action.payload
 			sessionStorage.setItem('city', state.city)
 		},
+		setSeason: (state, action: PayloadAction<string | null>) => {
+			state.season = action.payload
+		},
 	},
 })
 
@@ -64,5 +69,6 @@ export const {
 	setCountry,
 	setRegion,
 	setCity,
+	setSeason,
 } = contextSlice.actions
 export default contextSlice.reducer

@@ -51,6 +51,184 @@
 			"password": "Name1234!"
 		}
 	],
+	"seasonalRecipes": [
+		{
+			"id": "1",
+			"season": "Лето",
+			"title": "Солнечное лето",
+			"body": "Блюда для летнего сезона",
+			"dishes": {
+				"breakfast": [
+					{
+						"id": "1",
+						"title": "Завтрак для лета номер 1",
+						"body": "Тело завтрака номер 1",
+						"cooking_time": 60,
+						"calories_per_100_grams": 200,
+						"type_of_meal": "Завтрак",
+						"type_of_dish": "Каша",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"lunch": [
+					{
+						"id": "1",
+						"title": "Обед для лета номер 1",
+						"body": "Тело обеда номер 1",
+						"cooking_time": 130,
+						"calories_per_100_grams": 300,
+						"type_of_meal": "Обед",
+						"type_of_dish": "Супы",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"dinner": [
+					{
+						"id": "1",
+						"title": "Ужин для лета номер 1",
+						"body": "Тело ужина номер 1",
+						"cooking_time": 50,
+						"calories_per_100_grams": 450,
+						"type_of_meal": "Ужин",
+						"type_of_dish": "Вторые блюда",
+						"world_cuisine": "Европейская кухня"
+					}
+				]
+			}
+		},
+		{
+			"id": "2",
+			"season": "Осень",
+			"title": "Тленная осень",
+			"body": "Блюда для осеннего сезона",
+			"dishes": {
+				"breakfast": [
+					{
+						"id": "1",
+						"title": "Завтрак для осени номер 1",
+						"body": "Тело завтрака номер 1",
+						"cooking_time": 60,
+						"calories_per_100_grams": 200,
+						"type_of_meal": "Завтрак",
+						"type_of_dish": "Каша",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"lunch": [
+					{
+						"id": "1",
+						"title": "Обед для осени номер 1",
+						"body": "Тело обеда номер 1",
+						"cooking_time": 130,
+						"calories_per_100_grams": 300,
+						"type_of_meal": "Обед",
+						"type_of_dish": "Супы",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"dinner": [
+					{
+						"id": "1",
+						"title": "Ужин для осени номер 1",
+						"body": "Тело ужина номер 1",
+						"cooking_time": 50,
+						"calories_per_100_grams": 450,
+						"type_of_meal": "Ужин",
+						"type_of_dish": "Вторые блюда",
+						"world_cuisine": "Европейская кухня"
+					}
+				]
+			}
+		},
+		{
+			"id": "3",
+			"season": "Зима",
+			"title": "Холодная зима",
+			"body": "Блюда для зимнего сезона",
+			"dishes": {
+				"breakfast": [
+					{
+						"id": "1",
+						"title": "Завтрак для зимы номер 1",
+						"body": "Тело завтрака номер 1",
+						"cooking_time": 60,
+						"calories_per_100_grams": 200,
+						"type_of_meal": "Завтрак",
+						"type_of_dish": "Каша",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"lunch": [
+					{
+						"id": "1",
+						"title": "Обед для зимы номер 1",
+						"body": "Тело обеда номер 1",
+						"cooking_time": 130,
+						"calories_per_100_grams": 300,
+						"type_of_meal": "Обед",
+						"type_of_dish": "Супы",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"dinner": [
+					{
+						"id": "1",
+						"title": "Ужин для зимы номер 1",
+						"body": "Тело ужина номер 1",
+						"cooking_time": 50,
+						"calories_per_100_grams": 450,
+						"type_of_meal": "Ужин",
+						"type_of_dish": "Вторые блюда",
+						"world_cuisine": "Европейская кухня"
+					}
+				]
+			}
+		},
+		{
+			"id": "4",
+			"season": "Весна",
+			"title": "Обнадеживающая весна",
+			"body": "Блюда для весеннего сезона",
+			"dishes": {
+				"breakfast": [
+					{
+						"id": "1",
+						"title": "Завтрак для весны номер 1",
+						"body": "Тело завтрака номер 1",
+						"cooking_time": 60,
+						"calories_per_100_grams": 200,
+						"type_of_meal": "Завтрак",
+						"type_of_dish": "Каша",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"lunch": [
+					{
+						"id": "1",
+						"title": "Обед для весны номер 1",
+						"body": "Тело обеда номер 1",
+						"cooking_time": 130,
+						"calories_per_100_grams": 300,
+						"type_of_meal": "Обед",
+						"type_of_dish": "Супы",
+						"world_cuisine": "Европейская кухня"
+					}
+				],
+				"dinner": [
+					{
+						"id": "1",
+						"title": "Ужин для весны номер 1",
+						"body": "Тело ужина номер 1",
+						"cooking_time": 50,
+						"calories_per_100_grams": 450,
+						"type_of_meal": "Ужин",
+						"type_of_dish": "Вторые блюда",
+						"world_cuisine": "Европейская кухня"
+					}
+				]
+			}
+		}
+	],
 	"news": [
 		{
 			"id": "1",

@@ -259,6 +259,14 @@ const RecipeFilter: FC = () => {
 									}>
 									Гарниры
 								</UsualButton>
+								<UsualButton
+									onClick={() =>
+										dispatch(
+											setFilter({ name: 'type_of_dish', value: 'Здоровая еда' })
+										)
+									}>
+									Здоровая еда
+								</UsualButton>
 							</div>
 						</div>
 						<div className='recipe-filter__filter'>
